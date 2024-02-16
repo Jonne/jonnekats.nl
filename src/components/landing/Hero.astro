@@ -1,0 +1,27 @@
+---
+import logo from "public/images/logo.png"
+import {Image} from "astro:assets";
+---
+
+<section >
+  <div class="px-8 flex flex-col lg:flex-row gap-10 md:px-12 mx-auto pb-8 lg:pb-12 max-w-7xl lg:px-32 items-center lg:pt-12">
+    <div class="basis-1/2">
+      <Image src={logo} alt="Guy programming in front of a dutch landscape."  />
+    </div>
+    <div class="lg:text-center basis-1/2">
+      <h1 class="text-4xl tracking-tight text-balance font-medium font-display text-black md:text-6xl">
+        Hi! 👋
+      </h1>
+      <p class="mt-6 lg:mt-10 text-xl lg:text-2xl">I'm Jonne, a Software Engineer in the Netherlands. I write about Composable Architecture, Headless and all things related to Software Development.</p>
+      <div class="flex gap-4 justify-center mt-10">
+          <a href="https://nl.linkedin.com/pub/jonne-kats/1/842/987">
+            <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_profile_bluetxt_80x15.png" width="80" height="15" border="0" alt="View Jonne Kats's profile on LinkedIn">
+          </a>
+        <div>
+          <a href="https://twitter.com/jonnekats" class="twitter-follow-button" data-show-count="false">Follow @jonnekats</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

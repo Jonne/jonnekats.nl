@@ -1,0 +1,36 @@
+---
+import {Image} from "astro:assets";
+const { title, url, description, image, date, tags, showTags = true } = Astro.props;
+import { CalendarIcon } from 'astro-feather';
+import NoImage from 'src/content/posts/images/noimage.jpg';
+---
+
+<li class="py-8 border-t-2">
+    <article class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="flex gap-3 order-1 md:col-span-2">
+      {
+        showTags && tags?.map((tag) => (
+            <span class="inline-flex items-center uppercase text-base tracking-wider underline underline-offset-4 font-extrabold hover:no-underline text-green-800">
+              <a href={`/posts/tags/${tag}`}>{tag}</a>
+            </span>
+        ))
+      }
+    </div>
+    <h3 class="text-3xl font-Kanit tracking-tighter order-2 md:order-3 md:col-span-2">
+      <a href={url} title={title} class="group">{title}</a></h3>
+    <span class="text-base text-zinc-500 flex gap-2 order-3 md:order-4 md:col-span-2"><CalendarIcon/> {date.toLocaleDateString(
+        "en-GB",
+        {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        }
+    )}</span>
+    <p class="order-5 md:order-5 md:col-span-2">{description}</p>
+    <Image
+        class="object-contain object-center order-4 md:order-2 md:row-span-4 "
+        src={image ?? NoImage}
+        alt="Blog post hero image"
+    />
+  </article>
+</li>

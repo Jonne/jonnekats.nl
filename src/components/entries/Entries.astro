@@ -1,0 +1,21 @@
+---
+import EntriesOne from "./EntriesOne.astro";
+const { posts, showTags } = Astro.props;
+---
+<ul class="flex flex-col">
+    {
+        posts.map((post) => (
+                <EntriesOne
+                    url={"/posts/" + post.slug}
+                    title={post.data.title}
+                    description={post.data.description}
+                    alt={post.data.title}
+                    date={post.data.date}
+                    author={post.data.author}
+                    image={post.data.image}
+                    tags={post.data.tags}
+                    showTags={showTags}
+                />
+            ))
+    }
+</ul>

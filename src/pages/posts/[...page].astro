@@ -1,0 +1,24 @@
+---
+import {getCollection} from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Entries from "../../components/entries/Entries.astro";
+import Pagination from "../../components/global/Pagination.astro";
+
+export async function getStaticPaths({ paginate }) {
+
+  const allPosts = await getCollection("posts");
+
+    // Return a paginated collection of paths for all posts
+  return paginate(allPosts.reverse(), { pageSize: 10 });
+}
+
+// If set up correctly, The page prop now has everything that
+// you need to render a single page (see next section).
+const { page } = Astro.props;
+---
+<BaseLayout pageTitle="All posts">
+    <div class="px-8 py-12 md:px-12 mx-auto lg:pb-24 max-w-7xl lg:px-32   lg:pt-18">
+        <Entries posts={page.data} />
+        <Pagination page={page} />
+    </div>
+</BaseLayout>
