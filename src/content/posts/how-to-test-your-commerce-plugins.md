@@ -11,7 +11,7 @@ description: "Writing tests is an important part of our work as software develop
 For a while I've been struggling to find a way to test custom Sitecore Commerce Engine plugins. One option would be to test against any custom blocks or pipelines directly and fake any dependencies such as other pipelines. This turns out to be not that trivial and there are other dependencies that you need to fake like the `CommerceContext`. As a result the tests don't look pretty and you are still just testing a small part of the functionality. 
 With ASP.net core it got possible to run [integration tests](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-3.1) in-memory using a TestServer. At Aviva Solutions we have been successfully using this on other projects and I really wanted to be able to use this for Sitecore Commerce projects as well. What I wanted to do is to run the commerce engine in-memory and then swap out the database related pipeline blocks by blocks that persist in-memory, so I wouldn't need to setup a database.
 
-![in-memory test server](/images/test-commerce-engine/overview.jpg)
+![in-memory test server](./images/test-commerce-engine/overview.jpg)
 
 The unit test would setup the commerce engine using the `TestServer` and swap out the SQL blocks with in-memory blocks. Then it would create an in-memory `HttpClient` using the `TestServer` and invoke the API like you would normally do using Postman. It would then assert by checking the API result or by checking what entities were added to the in-memory persistency blocks. It turned out running the commerce engine in-memory was not that easy, so I will share the challenges I needed to overcome.
 

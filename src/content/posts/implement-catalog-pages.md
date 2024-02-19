@@ -59,7 +59,7 @@ Make sure to use the `NavLink` component from react-router for the links. If not
 
 To retrieve the categories, we chose to create a custom [content resolver](https://jss.sitecore.com/docs/techniques/extending-layout-service/layoutservice-rendering-contents), named `CategoryNavigationContentResolver`. As mentioned before, it should be configurable what categories to show. To do this, we have added a `Starting Point` field of type `DropTree` to the datasource template of the rendering, that allows the content editor to select a location in the catalog.
 
-![category starting point](/assets/images/implement-catalog-pages/startingpoint.jpg)
+![category starting point](./images/implement-catalog-pages/startingpoint.jpg)
 
 ``` csharp
     public class CategoryNavigationContentResolver : RenderingContentsResolver
@@ -123,7 +123,7 @@ The Subcategory navigation control looks similar, but has a different content re
 
 Seeing both components in action:
 
-![category navigation](/assets/images/implement-catalog-pages/categorynavigation.jpg)
+![category navigation](./images/implement-catalog-pages/categorynavigation.jpg)
 
 ## Product page
 On the product page we wanted to display basic product information: title, description, image, price and an add-to-cart button. Joost already talked about the add-to-cart button in [part 3 of this series](https://joost.meijles.com/jss_cart_actions/), so I will focus on the other components here. JSS components usually get their data from a dedicated data source item. For the product detail components we want the components to get the data from the current Sitecore item: `Sitecore.Context.Item`. To access this data from your component you need to use the `withSitecoreContext` higher order component. For example, the component to display the product title looks like this:
@@ -234,7 +234,7 @@ export default withSitecoreContext()(ProductPrice);
 
 ```
 
-![product detail page](/assets/images/implement-catalog-pages/pdp.jpg)
+![product detail page](./images/implement-catalog-pages/pdp.jpg)
 
 ## Category page
 For the category page we wanted to display the category title and a list of products in that category. To display the category title we could simply reuse the title component used on the product detail page. To display the products in that category we had a couple of options: 
@@ -313,6 +313,6 @@ export default GraphQLData(GetProductsQuery, { name: 'getProductsQuery' })(Produ
 
 > Retrieving the products with the Items GraphQL endpoint is quite slow. An alternative worth investigating is trying to use the content search GraphQL endpoint.
 
-![category page](/assets/images/implement-catalog-pages/categorypage.jpg)
+![category page](./images/implement-catalog-pages/categorypage.jpg)
 
 This is starting to look like a real shop! JSS gives us a lot of flexibility and allowed us to quickly iterate on the front-end development. The real challenge is to figure out how to get the data in the JSS components. This got easier once we got the hang of how to use content resolvers and GraphQL queries.

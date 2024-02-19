@@ -4,11 +4,8 @@ date: 2017-05-20
 author: jonnekats
 comments: true
 tags: [Sitecore, React]
+description: "Last year we started the development of Mercury, which is a generic E-commerce solution based on Sitecore & Commerce server. Over the years we have gained a lot of experience building E-commerce solutions. One of the things we wanted to do better with Mercury was to improve the User Experience, by using more client-side technology and by optimizing our usage of the browsers. This led us to find a client-side technology that would best fit our requirements.  These days the amount of JavaScript frameworks is overwhelming, but in the end we went for Facebook’s React. In this article you will learn why."
 ---
-Last year we started the development of Mercury, which is a generic E-commerce solution based on Sitecore & Commerce server. Learn more about Mercury [here](http://mercury-ecommerce.com). Over the years we have gained a lot of experience building E-commerce solutions. One of the things we wanted to do better with Mercury was to improve the User Experience, by using more client-side technology and by optimizing our usage of the browsers. This led us to find a client-side technology that would best fit our requirements.  These days the amount of JavaScript frameworks is overwhelming, but in the end we went for Facebook’s React. In this article you will learn why. 
-
-<!--more-->
-
 ## React
 React JS is a JavaScript framework for developing complex User Interfaces. It is developed by Facebook and has gotten a lot of publicity and momentum in the last couple of years. The first version of React was open sourced in 2013 and is currently being used by sites like Netflix, AirBNB, Twitter and Facebook itself. Why are more and more of these sites going for React?
 
@@ -16,7 +13,7 @@ React JS is a JavaScript framework for developing complex User Interfaces. It is
 Unlike many JavaScript framework like Angular and Ember, React is focused only on the View part of [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller). With MVC the model represents the data, the controller contains the logic like retrieving the data and the view transforms the model into something presentable, like HTML. Next to this, these frameworks offer all sorts of other facilities like Dependency Injection, services for communicating with the server, etc. 
 React only knows components. Views are implemented with components and these components contains both the logic and the markup. In MVC frameworks the logic is separated from the markup. The controller contains the logic and the transformation from data to HTML is usually implemented by templates. According to the React philosophy the logic and the markup are too tightly coupled and should be kept together. Because the presentation logic is not spread out over multiple objects, React components greatly facilitate reuse. 
 
-![Model View Controller](/assets/images/react-sitecore/mvc.png)
+![Model View Controller](./images/react-sitecore/mvc.png)
 
 ### Simple & fast
 Performing updates is one of the reason User Interface code gets so complex. For example, deleting or adding a record to a list. The code needs to call the server to delete the record, but also remove or add the list from the UI. There is a lot of complex UI code for all these specialized scenario’s. Also, because the state in multiple places, you have to deal with state synchronization, which is complex and can cause bugs. It is a lot easier to just refresh the data from the server after a mutation and then re-render the whole list. React makes this especially easy by automatically re-rendering a component when its state changes. You only have to write the code that changes the state and only have to create the UI code that renders based on the state. Normally re-rendering the UI for every change would be expensive and cause performance problems, but React has a solution for this.
@@ -38,7 +35,7 @@ The presentation details make up how an item will be presented in the UI. This c
 When a rendering is added to the presentation details, it will optionally show a popup in which the rendering can be configured. So renderings are configurable and reusable.
 Now we know a bit of how Sitecore works, let’s see why React is such a good fit for this.
 
-![Sitecore](/assets/images/react-sitecore/sitecore.png)
+![Sitecore](./images/react-sitecore/sitecore.png)
 
 ## Sitecore <3 React
 Sitecore renderings transform data to HTML. With MVC JavaScript frameworks this logic is spread out between the view and the controller, see Figure 2. The user interacts with the view, the view passes this on to the controller and the controller communicates with the server and transforms this into a model that is used by the view. Multiple components are involved in this operation. In case of a Sitecore rendering we already have the data and somehow we need to make this available in the JavaScript controller. With some hacks you will be able to get this working, but the two concepts just don’t seem to fit really well. 

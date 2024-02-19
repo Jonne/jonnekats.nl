@@ -5,11 +5,8 @@ author: jonnekats
 comments: true
 keywords: Sitecore 9, Docker, SIF, xConnect, SQL, Shard, Connection error
 tags: [Sitecore]
+description: "When I was trying to get the Sitecore 9 xp0 topology working, I ran into an issue with the xConnect SQL shard deployment. I installed everything using the SIF scripts and it seemed to have installed fine, but I found connection errors in the xConnect logs."
 ---
-When I was [trying](../dockerizing-sitecore-9-xp0) to get the Sitecore 9 xp0 topology working, I ran into an issue with the xConnect SQL shard deployment. I installed everything using the SIF scripts and it seemed to have installed fine, but I found connection errors in the xConnect logs:
-
-<!--more-->
-
 > A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.
 
 I checked the connection strings in the config files for xConnect and everything seemed fine. A better look at the stack trace showed me this error was originating from the Azure ShardMapManager code that xConnect used to manage the SQL shards. This ShardMapManager uses information from a table (ShardsGlobal) to connect to the right shard databases and opening this table showed me that the server name was set to `localhost`. However, SQL server was installed on another machine. 

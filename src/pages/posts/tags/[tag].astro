@@ -14,7 +14,7 @@ export async function getStaticPaths() {
     );
     return {
       params: { tag },
-      props: { posts: filteredPosts.reverse() },
+      props: { posts: filteredPosts.sort((a, b) => b.data.date - a.data.date) },
     };
   });
 }

@@ -10,8 +10,6 @@ AuthorizationService.AddPermissionsToQuery(currentUser.Value, </span><span style
 </span><span style="color:#0000FF;">return</span><span style="color:#000000;"> criteria.GetExecutableCriteria(Session).List</span><span style="color:#000000;">&lt;</span><span style="color:#000000;">Company</span><span style="color:#000000;">&gt;</span><span style="color:#000000;">();</span></pre><!-- Code inserted with Steve Dunn's Windows Live Writer Code Formatter Plugin.  http://dunnhq.com --></div>
 </p>
 
-<!--more-->
-
 <p>This way, a user only gets to see the companies he has permissions for. The <strong>AddPermissionsToQuery</strong> method expects a user, an operation and an NHibernate <strong>ICiteria</strong> object. The <strong>ICriteria</strong> object is the NHibernate Criteria that needs to be extended with permissions. </p>
 
 <p>This works really well, a nice optimized query is generated. However, when working with Linq-to-Nhibernate, you don’t have an <strong>ICriteria</strong> object, so how can we add the permissions to those queries? </p>

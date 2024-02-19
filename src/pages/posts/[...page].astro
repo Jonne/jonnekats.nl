@@ -4,12 +4,12 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Entries from "../../components/entries/Entries.astro";
 import Pagination from "../../components/global/Pagination.astro";
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate })  {
 
   const allPosts = await getCollection("posts");
 
     // Return a paginated collection of paths for all posts
-  return paginate(allPosts.reverse(), { pageSize: 10 });
+  return paginate(allPosts.sort((a, b) => b.data.date - a.data.date), { pageSize: 10 });
 }
 
 // If set up correctly, The page prop now has everything that

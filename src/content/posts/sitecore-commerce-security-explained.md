@@ -6,11 +6,8 @@ comments: true
 keywords: Sitecore 9, SXC9, commerce, security, identity server, authentication, authorization, explained
 image: ./images/commerce-security.jpg
 tags: [Sitecore]
+description: "Authentication with SXC9 is available in the online documentation, but how does authorization work? And how can you add authorization to your own controller methods?"
 ---
-Authentication with SXC9 is available in the online documentation, but how does authorization work? And how can you add authorization to your own controller methods? 
-
-<!--more-->
-
 # Authentication
 As stated by the [SXC9 documentation](https://doc.sitecore.com/developers/91/sitecore-experience-commerce/en/authentication.html), there are two ways to authenticate with the commerce engine.
 
@@ -26,7 +23,7 @@ Identity Server provides a GetToken HTTP endpoint that accepts the sitecore cred
 ### Authorize 
 This endpoint is used by the business tools. When the user opens the business tools, the user is redirected to the authorize endpoint of Identity Server, which shows a login page. After the user has successfully entered credentials, the user is redirected to the business tools with the access token as a query parameters. That token can then be used by the business tools to access the commerce engine.
 
-![Authentication overview](/assets/images/sxc9-security/overview.jpg))
+![Authentication overview](./images/sxc9-security/overview.jpg))
 
 # Authorization
 Authorization in the commerce engine is based on user roles and controller actions. This is configured in the `Core.ControllerMethodRoles.PolicySet-1.0.0.json` policy file, which content contains elements that look like the following:
@@ -58,10 +55,10 @@ In the case of certificate authentication the roles are configured in the `confi
     }
 ```
 
-![Certificate authorization](/assets/images/sxc9-security/certificateauthorization.jpg))
+![Certificate authorization](./images/sxc9-security/certificateauthorization.jpg))
 
 
 ## Bearer token authentication
 When the client is authenticated with bearer authentication the token will contain the roles of the user in its claims. When the user logs in using Identity Server, Identity Server will retrieve the users roles from the core database and return them in the token.
 
-![Bearer authorization](/assets/images/sxc9-security/bearerauthorization.jpg)
+![Bearer authorization](./images/sxc9-security/bearerauthorization.jpg)

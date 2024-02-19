@@ -1,5 +1,11 @@
 ---
 import EntriesOne from "./EntriesOne.astro";
+
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+    posts: CollectionEntry<'posts'>[];
+    showTags?: boolean;
+}
 const { posts, showTags } = Astro.props;
 ---
 <ul class="flex flex-col">

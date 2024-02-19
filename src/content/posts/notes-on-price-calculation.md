@@ -6,11 +6,8 @@ comments: true
 keywords: Sitecore 9, SXC9, pricing, listprice, sellprice, commerce
 image: ./images/price-calculation.jpg
 tags: [Sitecore]
+description: "Today I needed to sort sellable items based on the listprice, which required me to do a deep dive into the SXC9 price calculation. This turned out to be not that trivial, so here are my notes."
 ---
-Today I needed to sort sellable items based on the listprice, which required me to do a deep dive into the SXC9 price calculation. This turned out to be not that trivial, so here are my notes:
-
-<!--more-->
-
 A sellable item has a **listprice** and a **sellprice**. According to the documentation, the listprice is the general price and the sellprice is the "personalized" price and is calculated using the configured price books. Because the sell price can vary between customers, it has to be requested from the commerce engine with a special bulkprices requests. This means that you won't see a sell price when you open the sellable item in the content editor. Suprisingly, the list price also needs to be requested using the bulkprices request and also doesn't show up in the content editor. The default list price calculation simply returns the listprice that is defined on the ListPricingPolicy of the sellable item. I can guess the listprice is not returned by default so you can still extend it to be more dynamic. 
 
 When you request a sellable item using the Sitecore data provider or when you use the sitecore index (That has been updated using the data provider via the sellableitemscrawler), you can simply execute the bulkprices request to add the prices after you have retrieved the sellable items. But what if you want to sort on listprice or have another reason for adding the listprice to the index? 

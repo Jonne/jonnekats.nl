@@ -54,11 +54,11 @@ public class GetCustomDetailsViewBlock : Sitecore.Commerce.Plugin.Customers.GetC
 
 Now when you replace the `GetCustomerDetailsViewBlock` block in the pipeline configuration (See end of this post) and view a customer in the business tools you will see the newly added title field:
 
-![Business tools](/assets/images/extend-customer/details.jpg)
+![Business tools](./images/extend-customer/details.jpg)
             
 You can also edit the customer and see the Title field, but it won't persist the value when you click save:
 
-![Business tools](/assets/images/extend-customer/edit.jpg)
+![Business tools](./images/extend-customer/edit.jpg)
 
 When you click save and the customer gets updated, the DoActionEditCustomer pipeline gets invoked. This pipeline first translates the EntityView back to a customer, using the `ITranslateEntityViewToCustomerPipeline` pipeline. Next, it invokes the `IUpdateCustomerDetailsPipeline` pipeline, which maps this temporary customer to an existing customer. 
 
@@ -122,7 +122,7 @@ Now, we need to extend the `IUpdateCustomerDetailsPipeline` pipeline, because th
 
 Because you need both the input customer and the mapped customer, you will need to subclass the default block. This approach is less extensible, but as far as I know, there currently is no out of the box way to get the original input argument of a pipeline. When you look at the pipeline configuration using [plumber](http://plumber-sc.com/), it should look like the following:
 
-![Pipeline configuration](/assets/images/extend-customer/updatepipeline.jpg)
+![Pipeline configuration](./images/extend-customer/updatepipeline.jpg)
 
 Tying it all together, the pipeline configuration looks like this:
 

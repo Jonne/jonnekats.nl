@@ -4,13 +4,14 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Entries from "@/components/entries/Entries.astro";
 import Hero from "@/components/landing/Hero.astro";
 const allPosts = await getCollection("posts");
+const firstPosts = allPosts.sort((a, b) => b.data.date - a.data.date).slice(0, 5);
 ---
 
 <BaseLayout showTitle={false}>
   <Hero />
   <section>
     <div class="px-8 md:px-12 mx-auto max-w-7xl lg:px-32">
-      <Entries posts={allPosts.toReversed().slice(0, 5)} />
+      <Entries posts={firstPosts} />
       <div class="flex justify-center mb-10"><a class="text-xl font-bold underline" href="/posts">See all posts -></a></div>
     </div>
   </section>

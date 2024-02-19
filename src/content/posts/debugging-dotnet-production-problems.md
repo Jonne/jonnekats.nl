@@ -4,11 +4,8 @@ date: 2010-04-05
 author: jonnekats
 comments: true
 tags: [Catalog Import, Code, Commerce Server, Commerce Server, Debug, Error, Msdbg, Production]
+description: "This post described how you can debug difficult dotnet problems in production environments. To illustrate this I’ll describe how we solved a problem we had with Microsoft Commerce Server in production."
 ---
-This post described how you can debug difficult dotnet problems in production environments. To illustrate this I’ll describe how we solved a problem we had with Microsoft Commerce Server in production.
-
-<!--more-->
-
 On one of our current projects we are using Commerce Server 2007. The project is currently in its stabilizing phase and we were setting up the production environment. However, we were getting errors on both the acceptation and production server when importing the final commerce server product catalog. This is standard commerce server code, the only thing we did was import a product xml file, which was exported from another commerce server installation. The following is the error we got from commerce server:
 
 “Line 2166: The filename, directory name, or volume label syntax is incorrect. (Exception from HRESULT: 0x8007007B)”

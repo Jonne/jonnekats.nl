@@ -2,16 +2,12 @@
 title:  "Sitecore Experience Commerce 9"
 canonical: https://mercury-ecommerce.com/tech/sitecore-experience-commerce-9
 keywords: Sitecore 9, Commerce 9, Mercury
-description: Goodbye old Commerceserver code, hello new Commerce engine.
+description: "Last week, the Mercury team attended the Sitecore Symposium in Las Vegas. There were a lot of great announcements, not least that Sitecore Experience Commerce 9 is to be launched in Q1 of 2018. Although Sitecore Commerce 8.2.1. was a huge step forward, it is a hybrid between old and new versions, which brought its own complexity."
 date: 2017-11-01
 author: jonnekats
 comments: true
 tags: [Sitecore]
 ---
-Last week, the Mercury team attended the Sitecore Symposium in Las Vegas. There were a lot of great announcements, not least that Sitecore Experience Commerce 9 is to be launched in Q1 of 2018. Although Sitecore Commerce 8.2.1. was a huge step forward, it is a hybrid between old and new versions, which brought its own complexity.  
-
-<!--more-->
-
 Sitecore Commerce 8.2.1. introduced a brand new Commerce Engine for the transaction and discount system that is based on .NET Core and runs out of process. The catalog, inventory and profile systems have not been changed, which led to a hybrid situation and a steep learning curve, especially for people new to both Commerce Server and Sitecore Commerce.
 
 You can read all about the 8.2.1. release in this [blog post](https://commerceservertips.com/sitecore-commerce-8-2-1-whats-in-the-box/) by my colleague Erwin Werkman.

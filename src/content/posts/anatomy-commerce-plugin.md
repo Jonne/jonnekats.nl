@@ -7,11 +7,8 @@ comments: true
 keywords: Sitecore 9, SXC9, commerce, plugin
 image: ./images/plugin-atonomy.jpg
 tags: [Sitecore]
+description: "Look at the new Sitecore Experience Commerce 9 engine and you will find that the engine itself is just a shell: the core functionality is implemented as plugins. Extending the engine can be done by creating your own plugins."
 ---
-Look at the new Sitecore Experience Commerce 9 engine and you will find that the engine itself is just a shell: the core functionality is implemented as plugins. Extending the engine can be done by creating your own plugins.
-
-<!--more-->
-
 These all share the same concepts, which makes them easy to understand. It also makes it easy to find the code you are looking for. This article describes these concepts and how we use them at Mercury E-commerce.
 
 The easiest way to learn about plugins is to open up a reflection tool (Like DotPeek) and look at the core plugins to see how they are implemented. You will find the following concepts.

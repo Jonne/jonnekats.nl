@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Integrate xUnit tests into your daily Team Build
 date: 2009-05-07
 author: jonnekats

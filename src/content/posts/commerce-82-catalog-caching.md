@@ -6,14 +6,11 @@ comments: true
 keywords: Sitecore 82, commerce, cache, invalidation, explained
 image: ./images/commerce-caching.jpg
 tags: [Sitecore]
+description: "For one of our Sitecore Commerce customers it is really important that product updates are processed and reflected on their website as soon as possible. In order to help them we really needed to understand where the product data is cached and how this is invalidated. In this post I will share our findings, which apply to Sitecore Commerce 8.2 & 8.2.1."
 ---
-For one of our Sitecore Commerce customers it is really important that product updates are processed and reflected on their website as soon as possible. In order to help them we really needed to understand where the product data is cached and how this is invalidated. In this post I will share our findings, which apply to Sitecore Commerce 8.2 & 8.2.1.
-
-<!--more-->
-
 The catalog data is cached on the following levels:
 
-![Caching layers](/assets/images/commerce-caching/cachinglayers.gif)
+![Caching layers](./images/commerce-caching/cachinglayers.gif)
 
 ### Commerce Server
 The catalog data is cached in the `CatalogCache`, which basically caches all the datasets that are retrieved from the database.  

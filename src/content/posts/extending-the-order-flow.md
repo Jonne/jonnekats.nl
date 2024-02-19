@@ -6,16 +6,13 @@ comments: true
 keywords: Sitecore 9, SXC9, extend, order flow, commerce
 image: ./images/extend-order-flow.jpg
 tags: [Sitecore]
+description: "The default Sitecore eXperience Commerce order flow is quite generic and although it is not documented, it is possible to modify it. In this post I will share how to add a custom order state."
 ---
-The default Sitecore eXperience Commerce order flow is quite generic and although it is not documented, it is possible to modify it. In this post I will share how to add a custom order state.
-
-<!--more-->
-
 ## Default order flow
 
 The out-of-the-box order flow looks like the following:
 
-![Out of the box order flow](/assets/images/extend-order-flow/orderflow.png)
+![Out of the box order flow](./images/extend-order-flow/orderflow.png)
 
 When you look closer at the order flow overview, you will notice these things called minions after almost each state transition. These minions are basically background jobs, that will periodically retrieve all orders in a certain state and fire a pipeline for every order in that state, optionally causing the order to transition to the next state. For example, there is a pending order minion that will periodically retrieve all orders in the pendings orders list and fire a pending orders minion pipeline. The blocks configured to run in this pipeline will validate the order and optionally transition it to the next state. 
 
@@ -25,7 +22,7 @@ This default order flow makes it perfectly suitable for an order flow based on f
 
 To make this explicit in our payment flow, we wanted to introduce an extra order state (WaitingForPayment): . 
 
-![Extended order flow](/assets/images/extend-order-flow/extendedorderflow.png)
+![Extended order flow](./images/extend-order-flow/extendedorderflow.png)
 
 ## Break down
 To add a new order state you will need to do the following:
