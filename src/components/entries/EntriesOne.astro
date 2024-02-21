@@ -1,6 +1,6 @@
 ---
 import {Image} from "astro:assets";
-const { title, url, description, image, date, tags, showTags = true } = Astro.props;
+const { title, url, description, image, date, tags, external, showTags = true } = Astro.props;
 import { CalendarIcon } from 'astro-feather';
 import NoImage from 'src/content/posts/images/noimage.png';
 ---
@@ -17,7 +17,7 @@ import NoImage from 'src/content/posts/images/noimage.png';
       }
     </div>
     <h3 class="text-3xl font-Kanit tracking-tighter order-2 md:order-3 md:col-span-2">
-      <a href={url} title={title} class="group">{title}</a></h3>
+      <a href={url} title={title} class="group" target={external ? "_blank" : "_self"}>{title}</a></h3>
     <span class="text-base text-zinc-500 flex gap-2 order-3 md:order-4 md:col-span-2"><CalendarIcon/> {date.toLocaleDateString(
         "en-GB",
         {
