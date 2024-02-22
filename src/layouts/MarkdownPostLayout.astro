@@ -59,6 +59,7 @@ const socialImage = frontmatter.image ? await getImage({src: frontmatter.image, 
           <Image
               class="object-cover object-center"
               src={frontmatter.image}
+              loading="eager"
               alt="Blog post title"
           />
         }
