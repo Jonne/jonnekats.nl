@@ -5,6 +5,7 @@ import {Image, getImage} from "astro:assets";
 import { AstroSeo } from "@astrolib/seo";
 import { CalendarIcon } from 'astro-feather';
 import NoImage from 'src/content/posts/images/noimage.png';
+import logo from "../../public/images/logo.png";
 const socialImage = frontmatter.image ? await getImage({src: frontmatter.image, format: 'webp'}) : null
 ---
 <AstroSeo
@@ -59,6 +60,8 @@ const socialImage = frontmatter.image ? await getImage({src: frontmatter.image, 
           <Image
               class="object-cover object-center"
               src={frontmatter.image}
+              widths={[240, 540, 720, frontmatter.image.width]}
+              sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${frontmatter.image.width}px`}
               loading="eager"
               alt="Blog post title"
           />
